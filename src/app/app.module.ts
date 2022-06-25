@@ -7,7 +7,8 @@ import { HomeComponent } from './views/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FoterComponent } from './shared/foter/foter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

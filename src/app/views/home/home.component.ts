@@ -26,7 +26,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
   dataSource = ELEMENT_DATA;
 
   constructor() { }

@@ -1,25 +1,25 @@
 <h1 mat-dialog-title>Cadastro de elementos</h1>
-<div class="dialog" mat-dialog-content>
-    <mat-form-field appearance="legacy">
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Position</mat-label>
+        <input matInput [(ngModel)]="data.position">
+    </mat-form-field>
+    <mat-form-field>
         <mat-label>Name</mat-label>
-        <input matInput #message maxlength="256" placeholder="Ex. Metano..." width="90%">
-        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        <input matInput [(ngModel)]="data.name">
     </mat-form-field>
-    <mat-form-field appearance="legacy">
-        <mat-label>Weighr</mat-label>
-        <input matInput #message maxlength="256" placeholder="Ex. 1.0033">
-        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    <mat-form-field>
+        <mat-label>Weight</mat-label>
+        <input matInput [(ngModel)]="data.weight">
     </mat-form-field>
-    <mat-form-field appearance="legacy">
+    <mat-form-field appearance="outline">
         <mat-label>Symbol</mat-label>
-        <input matInput #message maxlength="256" placeholder="Ex. M">
-        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        <input color="" matInput [(ngModel)]="data.symbol">
     </mat-form-field>
-
 </div>
 
 
 <div class="buttons" mat-dialog-actions>
-    <button class="cancel" mat-button mat-dialog-close>Close</button>
+    <button class="cancel" (click)="onNoClick()" mat-button mat-dialog-close>Close</button>
     <button class="submit" mat-button mat-dialog-close>Save</button>
 </div>

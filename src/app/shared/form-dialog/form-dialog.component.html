@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Cadastro de elementos</h1>
+<div class="dialog" mat-dialog-content>
+    <mat-form-field appearance="legacy">
+        <mat-label>Name</mat-label>
+        <input matInput #message maxlength="256" placeholder="Ex. Metano..." width="90%">
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+        <mat-label>Weighr</mat-label>
+        <input matInput #message maxlength="256" placeholder="Ex. 1.0033">
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+        <mat-label>Symbol</mat-label>
+        <input matInput #message maxlength="256" placeholder="Ex. M">
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    </mat-form-field>
+
+</div>
+
+
+<div class="buttons" mat-dialog-actions>
+    <button class="cancel" mat-button mat-dialog-close>Close</button>
+    <button class="submit" mat-button mat-dialog-close>Save</button>
+</div>

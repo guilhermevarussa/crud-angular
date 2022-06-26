@@ -1,0 +1,43 @@
+.dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.buttons {
+    padding: 10px;
+    flex-direction: row-reverse;
+    align-items: center;
+
+}
+
+.submit {
+    color: rgb(88, 247, 88);
+
+}
+
+.submit:hover {
+    background-color: #70fd6b;
+    color: #f3f3f3;
+    cursor: pointer;
+    transform: scale(1.0);
+    transition: all 0.5s;
+
+}
+
+
+.cancel {
+    color: #fa4949;
+
+}
+
+.cancel:hover {
+    background-color: #fa4949;
+    ;
+    color: #f3f3f3;
+    cursor: pointer;
+    transform: scale(1.0);
+    transition: all 0.5s;
+
+}

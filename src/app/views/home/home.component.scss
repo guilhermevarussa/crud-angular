@@ -34,3 +34,26 @@ table {
 
 
 }
+
+.add {
+    background-color: #000000ce;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: row-reverse;
+    color: #f3f3f3;
+}
+
+
+.add-button {
+    background-color: #e04b10;
+    display: flex;
+    flex-direction: row-reverse;
+    color: #f3f3f3;
+
+    :hover {
+        transform: scale(1.2);
+        transition: all 0.5s;
+        background-color: #fa6035;
+
+    }
+}

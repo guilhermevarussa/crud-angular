@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { FormDialogComponent } from 'src/app/shared/form-dialog/form-dialog.component';
 
 export interface PeriodicElement {
   name: string;
@@ -27,11 +29,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
-  dataSource = ELEMENT_DATA;
+  dataSource = ELEMENT_DATA
 
-  constructor() { }
+
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+
+  openDialog() {
+    this.dialog.open(FormDialogComponent);
+  }
 }
+
+
+
+
+

@@ -24,6 +24,8 @@ export class FormDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  onSubmit() {
 
-
+    this.onNoClick()
+  }
 }

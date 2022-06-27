@@ -36,7 +36,7 @@ table {
 }
 
 .add {
-    background-color: #000000ce;
+    background-color: #00000086;
     padding: 20px 50px;
     display: flex;
     flex-direction: row-reverse;
@@ -50,10 +50,11 @@ table {
     flex-direction: row-reverse;
     color: #f3f3f3;
 
-    :hover {
-        transform: scale(1.2);
-        transition: all 0.5s;
-        background-color: #fa6035;
+}
 
-    }
+.add-button:hover {
+    transform: scale(1.01);
+    transition: all 0.5s;
+    background-color: #f56c46;
+
 }

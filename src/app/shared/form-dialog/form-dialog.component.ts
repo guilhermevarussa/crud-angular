@@ -21,12 +21,12 @@ export class FormDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onNoClick(): void {
+  onCancel(): void {
     this.dialogRef.close();
   }
 
   onSubmit() {
 
-    this.onNoClick()
+    this.onCancel()
   }
 }

@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
     public elementsService: ElementsService
   ) {
     this.elementsService.getElements().subscribe((data: PeriodicElement[]) => {
+      console.log(data);
       this.dataSource = data;
     })
   }
@@ -54,6 +55,7 @@ export class HomeComponent implements OnInit {
         weight: null,
         Symbol: ""
       } : {
+        id: element.id,
         position: element.position,
         name: element.name,
         weight: element.weight,
@@ -64,12 +66,20 @@ export class HomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
-        if (this.dataSource.map(p => p.position).includes(result.position)) {
-          this.dataSource[result.position - 1] = result;
-          this.table.renderRows();
+        console.log(result)
+        if (this.dataSource.map(p => p.id).includes(result.id)) {
+          this.elementsService.editElement(result).subscribe((data: PeriodicElement) => {
+            const index = this.dataSource.findIndex(p => p.id === data.id);
+            this.dataSource[result.position - 1] = data;
+            this.table.renderRows();
+          })
+
         } else {
-          this.dataSource.push(result);
-          this.table.renderRows();
+          this.elementsService.creatElements(result).subscribe((data: PeriodicElement) => {
+            this.dataSource.push(data);
+            this.table.renderRows();
+          });
+
         }
 
       }
@@ -80,7 +90,11 @@ export class HomeComponent implements OnInit {
   }
 
   deleteElement(position: number) {
-    this.dataSource = this.dataSource.filter(el => el.position !== position)
+
+    this.elementsService.deleteElement(position).subscribe(() => {
+      this.dataSource = this.dataSource.filter(el => el.position !== position)
+    });
+
 
 
   }

@@ -49,14 +49,25 @@ export class HomeComponent implements OnInit {
         name: "",
         weight: null,
         Symbol: ""
-      } : element
+      } : {
+        position: element.position,
+        name: element.name,
+        weight: element.weight,
+        Symbol: element.symbol
+      }
 
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
-        this.dataSource.push(result);
-        this.table.renderRows();
+        if (this.dataSource.map(p => p.position).includes(result.position)) {
+          this.dataSource[result.position - 1] = result;
+          this.table.renderRows();
+        } else {
+          this.dataSource.push(result);
+          this.table.renderRows();
+        }
+
       }
 
 
@@ -67,6 +78,11 @@ export class HomeComponent implements OnInit {
   deleteElement(position: number) {
     this.dataSource = this.dataSource.filter(el => el.position !== position)
 
+
+  }
+
+  editElement(element: PeriodicElement) {
+    this.openDialog(element);
 
   }
 

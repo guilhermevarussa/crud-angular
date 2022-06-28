@@ -9,6 +9,7 @@ import { PeriodicElement } from 'src/app/views/home/home.component';
 })
 export class FormDialogComponent implements OnInit {
   element!: PeriodicElement;
+  isChange!: boolean;
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
@@ -19,6 +20,9 @@ export class FormDialogComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if (this.data.position != null) {
+      this.isChange = true;
+    }
   }
 
   onCancel(): void {

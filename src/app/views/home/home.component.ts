@@ -54,11 +54,10 @@ export class HomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
       if (result !== undefined) {
-        this.dataSource.push(result)
+        this.dataSource.push(result);
+        this.table.renderRows();
       }
-
 
 
     });

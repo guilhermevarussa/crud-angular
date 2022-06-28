@@ -1,14 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
+import { PeriodicElement } from 'src/app/models/model';
 import { FormDialogComponent } from 'src/app/shared/form-dialog/form-dialog.component';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
 const ELEMENT_DATA: PeriodicElement[] = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
@@ -32,7 +27,7 @@ export class HomeComponent implements OnInit {
   @ViewChild(MatTable)
   table!: MatTable<any>
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
-  dataSource = ELEMENT_DATA;
+  dataSource: PeriodicElement[] = ELEMENT_DATA;
 
 
   constructor(public dialog: MatDialog) { }

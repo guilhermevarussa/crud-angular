@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
         if (this.dataSource.map(p => p.id).includes(result.id)) {
           this.elementsService.editElement(result).subscribe((data: PeriodicElement) => {
             const index = this.dataSource.findIndex(p => p.id === data.id);
-            this.dataSource[result.position - 1] = data;
+            this.dataSource[index] = data;
             this.table.renderRows();
           })
 

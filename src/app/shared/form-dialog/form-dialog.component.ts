@@ -11,8 +11,9 @@ export class FormDialogComponent implements OnInit {
   element!: PeriodicElement;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public data: PeriodicElement,
     public dialogRef: MatDialogRef<FormDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: PeriodicElement,
 
   ) { }
 

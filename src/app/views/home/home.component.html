@@ -1,13 +1,14 @@
 <div class="container">
 
     <div class="add">
-        <button class="add-button" mat-button (click)="openDialog()">
-            <mat-icon>add</mat-icon>Adicionar elemento</button>
+        <button class="add-button" mat-button (click)="openDialog(null)">
+            <mat-icon>add</mat-icon>Adicionar elemento
+        </button>
     </div>
 
 
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table id="table" [dataSource]="dataSource" class="mat-elevation-z8">
 
         <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef> No. </th>

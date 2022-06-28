@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
 import { FormDialogComponent } from 'src/app/shared/form-dialog/form-dialog.component';
 
 export interface PeriodicElement {
@@ -28,6 +29,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild(MatTable)
+  table!: MatTable<any>
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
   dataSource = ELEMENT_DATA;
 
@@ -37,11 +40,36 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openDialog(element: PeriodicElement | null): void {
 
-  openDialog() {
-    this.dialog.open(FormDialogComponent);
+    const dialogRef = this.dialog.open(FormDialogComponent, {
+      width: '250px',
+      data: element === null ? {
+        position: null,
+        name: "",
+        weight: null,
+        Symbol: ""
+      } : element
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result !== undefined) {
+        this.dataSource.push(result)
+      }
+
+
+
+    });
   }
+
+
 }
+
+
+
+
 
 
 

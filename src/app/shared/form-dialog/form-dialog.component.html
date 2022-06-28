@@ -2,24 +2,24 @@
 <div mat-dialog-content class="dialog">
     <mat-form-field>
         <mat-label>Position</mat-label>
-        <input color="primary" matInput>
+        <input matInput [(ngModel)]="data.position">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Name</mat-label>
-        <input color="primary" matInput>
+        <input color="primary" matInput [(ngModel)]="data.name">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Weight</mat-label>
-        <input color="primary" matInput>
+        <input color="primary" matInput [(ngModel)]="data.weight">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Symbol</mat-label>
-        <input color="primary" matInput>
+        <input color="primary" matInput [(ngModel)]="data.symbol">
     </mat-form-field>
 </div>
 
 
 <div class="buttons" mat-dialog-actions>
     <button class="cancel" (click)="onNoClick()" mat-button mat-dialog-close>Close</button>
-    <button class="submit" mat-button mat-dialog-close>Save</button>
+    <button class="submit" mat-button [mat-dialog-close]="data">Save</button>
 </div>
